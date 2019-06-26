@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+    org.apache.camel.component.file.remote: warn
+
+# Location where a list of downloaded files will be kept (to avoid loops)
+idempotency:
+  file: /opt/dolven/config/downloadedFiles.txt
+
+# Where to put the downloaded files (original directory structure will be kept)
+output:
+  dir: /opt/dolven/output/
+
+# To avoid downloading everything on the first run, the files will not be downloaded - only added to the file of "already processed files"
+# This makes it safe to initialize the app first, then setting this to true so that new files will be downloaded.
+download: false
+
+sftp:
+  hostname: 142.93.226.192
+  port: 15000
+  baseDir: /
+  username: dolven
+  password: DuT6z7RLUF
